@@ -52,5 +52,6 @@ class ConnectedForm extends Component {
         );
     }
 }
+
 const Form = connect(null, mapDispatchToProps)(ConnectedForm);
 export default Form;

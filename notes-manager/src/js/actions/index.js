@@ -1,4 +1,4 @@
-import ADD_NOTE from '../constants'
+import { ADD_NOTE } from '../constants/action-types';
 
 export function addNote(payload) {
     return {

@@ -5,16 +5,19 @@ import { addNote } from "../actions/index";
 import "../styles/index.css"
 
 function mapDispatchToProps(dispatch) {
-  return {
-    addNote: title => dispatch(addNote(title))
-  };
+    return {
+        addNote: title => dispatch(addNote(title))
+    };
 }
+
 class ConnectedForm extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+
         this.state = {
-        title: ""
+            title: ""
         };
+
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -45,7 +48,7 @@ class ConnectedForm extends Component {
                     onChange={this.handleChange}
                 />
                 <button type="submit" className="btn btn-success btn-lg add-note-button">
-                    SAVE
+                    Save
                 </button>
                 </div>
             </form>

@@ -1,16 +1,45 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
+import { removeNote } from "../actions/index";
 
+import "../styles/index.css";
 
-class ConnectedList extends React.Component {
+function mapDispatchToProps(dispatch) {
+    return {
+        removeNote: title => dispatch(removeNote(title))
+    };
+}
+
+class ConnectedList extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            sample: ""
+        };
+    }
+
+    handleClick(el) {
+        let title = el.title;
+        let id = el.id;
+        this.props.removeNote({ title, id});
+    }
+
+    componentDidUpdate() {
+        console.log(true);
+    }
+
     render() {
-        return (
+        return (    
             <ul className="list-group list-group-flush">
-                {this.props.notes.map(el => (
-                    <li className="list-group-item" key={el.id}>
-                        {el.title}
-                    </li>
-                ))}
+                {
+                    this.props.notes.map(el => (
+                        <li className="list-group-item" key={el.id}>
+                            {el.title}    
+                            <button type="submit" className="add-note-button" onClick={() => this.handleClick(el)}>Delete</button>
+                        </li>
+                    ))
+                }
             </ul>
         );      
     }
@@ -19,6 +48,6 @@ class ConnectedList extends React.Component {
 const mapStateToProps = state => {
     return { notes: state.notes };
 };
-const List = connect(mapStateToProps)(ConnectedList);
 
+const List = connect(mapStateToProps, mapDispatchToProps)(ConnectedList);
 export default List;

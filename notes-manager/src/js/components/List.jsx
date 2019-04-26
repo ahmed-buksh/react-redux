@@ -30,11 +30,18 @@ class ConnectedList extends Component {
     }
 
     render() {
+        if (this.props.notes.length === 0) {
+            return (
+                <div className="list-group list-group-flush">
+                    No notes to display
+                </div>
+            );
+        }
         return (    
             <ul className="list-group list-group-flush">
                 {
                     this.props.notes.map(el => (
-                        <li className="list-group-item" key={el.id}>
+                        <li className="list-group-item notes-display" key={el.id}>
                             {el.title}    
                             <button type="submit" className="add-note-button" onClick={() => this.handleClick(el)}>Delete</button>
                         </li>

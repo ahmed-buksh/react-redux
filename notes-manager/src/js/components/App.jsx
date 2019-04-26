@@ -12,7 +12,7 @@ const App = () => (
       <List />
     </div>
     <div className="col-md-4 offset-md-1">
-      <h2 className="header">Add a new article</h2>
+      <h2 className="header">Add a new note</h2>
       <Form />
     </div>
   </div>

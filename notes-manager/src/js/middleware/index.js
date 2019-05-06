@@ -4,7 +4,7 @@ export function validateNote({ dispatch }) {
     return function(next) {
         return function(action) {
             if (action.type === ADD_NOTE) {
-                if (action.payload.title.length === 0) {
+                if (action.notes.title.length === 0) {
                     return dispatch({ type: "FOUND EMPTY NOTE" })
                 }
             }

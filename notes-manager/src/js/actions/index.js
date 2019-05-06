@@ -1,16 +1,16 @@
 import { ADD_NOTE } from '../constants/action-types';
 import { REMOVE_NOTE } from '../constants/action-types';
 
-export function addNote(payload) {
+export function addNote(notes) {
     return {
         'type': ADD_NOTE,
-        payload,
+        notes,
     }
 }
 
-export function removeNote(payload) {
+export function removeNote(notes) {
     return {
         'type': REMOVE_NOTE,
-        payload,
+        notes,
     }
 }
